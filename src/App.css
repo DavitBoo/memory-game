@@ -4,6 +4,7 @@ body{
     background-color: #224870;
     color: #fff;
     width: 100%;
+    font-family: 'Mochiy Pop One', sans-serif;
 }
 
 .container{
@@ -14,14 +15,66 @@ h1{
     color: #fff;
     margin: 0;
     padding: 0;   
-    font-family: 'Mochiy Pop One', sans-serif;;
+    font-family: 'Mochiy Pop One', sans-serif;
 }
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all .2s;
+  }
+
+a:hover{
+    color: #02C39A;
+}
+
 
 span{
     margin: 0;
     padding: 0;    
 }
 
+hr{
+    border-color: #2A4494;
+}
+
+button{
+    border-radius: 1rem;
+    border: 1px solid #fff;
+    background-color: #fff;
+    width: 300px;
+    padding: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+button:hover{
+    background-color: #00000000;
+    color: #fff;
+    cursor: pointer;
+}
+
+img{
+    filter: grayscale(50%);
+    transition: all .1s;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border: 3px solid #00A896;
+    outline: 3px solid #02C39A;
+}
+
+
+img:hover{
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
 
 /* *** flexbox *** */
 
@@ -34,6 +87,8 @@ span{
     flex-direction: column;
 }
 
+
+/* ** Header ** */
 
 .header{
     justify-content: space-around;
@@ -48,5 +103,33 @@ span{
     padding: .7rem;
     margin: .4rem;
     border-radius: 1rem;
+}
 
+/* ** MAIN ** */
+
+.main{
+    align-items: center;
+}
+
+
+.game-intro, .game-over{
+    max-width: 450px;
+    padding: 3rem;
+    text-align: center;
+    background-color: #122C34;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+
+
+/* ** footer ** */
+.footer{
+    margin-top: 20px;
+    text-align: center;
+    background-color: #00000053;
+}
+
+.footer p {
+    padding: 1rem;
 }

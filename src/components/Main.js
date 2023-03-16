@@ -5,7 +5,7 @@ import GameIsOver from './main/GameIsOver'
 
 export default function Main() {
     return (
-        <div>
+        <div className='main flex-col'> 
             <GameIntro />
             <CardList />            
             <GameIsOver />
