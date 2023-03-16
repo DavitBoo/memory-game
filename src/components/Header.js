@@ -4,7 +4,7 @@ import Score from './header/Score'
 
 export default function Header() {
   return (
-    <div>
+    <div className="flex header">
         <GameLogo/>
         <Score/>
     </div>
