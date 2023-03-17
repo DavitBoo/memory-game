@@ -91,6 +91,14 @@ img:hover{
     flex-direction: column;
 }
 
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: min(3rem, 5vh);
+    max-width: 800px;
+}
+
 /* *** grid *** */
 .grid{
     display: grid;
@@ -146,4 +154,31 @@ img:hover{
 
 .footer p {
     padding: 1rem;
+}
+
+
+/* ** Card ** */
+
+.card{
+    position: relative; 
+}
+
+.card:hover .imgInfo{
+    transform: scale(1.05);
+}
+
+.imgInfo{
+    position: absolute;
+    bottom:25%;
+    left: 6px;
+    width: 103px;
+    background-color: #00000080;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    cursor: pointer;
+}
+
+.imgInfo p {
+    text-align: center;
+    font-size: .5rem;
 }

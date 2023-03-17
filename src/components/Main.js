@@ -7,10 +7,17 @@ export default function Main(props) {
 
     const [gameStarted, setGameStarted] = useState(false)
     const [gameFinished, setGameFinished] = useState(false)
+    const [youWon, setYouWon] = useState(false)
 
     const startGame = () => {
         setGameStarted(true)
         setGameFinished(false)
+        setYouWon(false)
+    }
+
+    const gameOver = (win = false) => {
+        if(win) setYouWon(true)
+        setGameFinished(true)
     }
 
     return (
@@ -18,8 +25,15 @@ export default function Main(props) {
             {   
                 !gameStarted ?
                     <GameIntro startGame={startGame}/> :
-                        (gameFinished ? <GameIsOver /> :
-                            <CardList updateCurrentScore={props.updateCurrentScore} />            
+                        (gameFinished ? <GameIsOver 
+                                            startGame={startGame} 
+                                            youWon={youWon}
+                                        /> 
+                            :<CardList 
+                                updateCurrentScore={props.updateCurrentScore} 
+                                resetCurrentScore={props.resetCurrentScore} 
+                                gameOver={gameOver}
+                            />            
                         )
             }    
                 

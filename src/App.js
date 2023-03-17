@@ -12,6 +12,10 @@ function App() {
   const updateCurrentScore = () => {
     setCurrentScore(currentScore+1)
   }
+  
+  const resetCurrentScore = () => {
+    setCurrentScore(0)
+  }
 
   useEffect(() => {
     if(currentScore > bestScore){
@@ -25,7 +29,7 @@ function App() {
           currentScore={currentScore}
           bestScore={bestScore}
         />  
-        <Main updateCurrentScore={updateCurrentScore} /> 
+        <Main updateCurrentScore={updateCurrentScore} resetCurrentScore={resetCurrentScore}/> 
         <Footer />
     </div>
   );

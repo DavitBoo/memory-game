@@ -3,35 +3,39 @@ import Card from './Card'
 
 export default function CardList(props) {
 
-  const {updateCurrentScore} = props
+  const {updateCurrentScore,resetCurrentScore, gameOver} = props
 
   const [randomCard, setRandomCard] = useState([
-    {imgName:1, touched: false},
-    {imgName:2, touched: false},
-    {imgName:3, touched: false},
-    {imgName:4, touched: false},
-    {imgName:5, touched: false},
-    {imgName:6, touched: false},
-    {imgName:7, touched: false},
-    {imgName:8, touched: false},
-    {imgName:9, touched: false},
-    {imgName:10, touched: false},
-    {imgName:11, touched: false},
-    {imgName:12, touched: false},
-    {imgName:13, touched: false},
-    {imgName:14, touched: false},
-    {imgName:15, touched: false},
-    {imgName:16, touched: false},
-    {imgName:17, touched: false},
-    {imgName:18, touched: false},
-    {imgName:19, touched: false},
-    {imgName:20, touched: false}
+    {imgName:1, touched: false, placeName: 'Santorini' },
+    {imgName:2, touched: false, placeName: 'Granada' },
+    {imgName:3, touched: false, placeName: 'San Sebastian'},
+    {imgName:4, touched: false, placeName: 'Alps'},
+    {imgName:5, touched: false, placeName: 'Rhodes'},
+    {imgName:6, touched: false, placeName: 'Athens'},
+    {imgName:7, touched: false, placeName: 'Girona'},
+    {imgName:8, touched: false, placeName: 'Bilbao'},
+    {imgName:9, touched: false, placeName: 'Slovenia'},
+    {imgName:10, touched: false, placeName: 'Venice (Los Angeles)'},
+    {imgName:11, touched: false, placeName: 'Cologne'},
+    {imgName:12, touched: false, placeName: 'Vitoria-Gasteiz'},
+    {imgName:13, touched: false, placeName: 'Florence'},
+    {imgName:14, touched: false, placeName: 'Costa Brava'},
+    {imgName:15, touched: false, placeName: 'Venice'},
+    {imgName:16, touched: false, placeName: 'Meteora'},
+    {imgName:17, touched: false, placeName: 'Salto del Nervión'},
+    {imgName:18, touched: false, placeName: 'Vitoria-Gasteiz (Virgen Blanca)'},
+    {imgName:19, touched: false, placeName: 'Griffith Observatory'},
+    {imgName:20, touched: false, placeName: 'Burgos'}
   ])
 
   useEffect(() => {
     // Mezcla los elementos aleatoriamente y actualiza el state
+    console.log(randomCard)
+    if(randomCard.find(element => element.touched === false) === undefined){
+      gameOver(true);
+    }
+
     setRandomCard((array) => {
-      console.log(array)
       let currentIndex = array.length,
         randomIndex;
 
@@ -51,11 +55,18 @@ export default function CardList(props) {
 
   const setNewArray = (imgName) => {
     setRandomCard((stateArr) => {
+      console.log(stateArr)
       return stateArr.map(card => {
         if (card.imgName === imgName) {
           if(!card.touched){
-            card.touched = true;
             updateCurrentScore();
+            return {
+              ...card,
+              touched: true
+            };
+          }else{
+            resetCurrentScore();
+            gameOver();
           }
           
         }
@@ -65,8 +76,8 @@ export default function CardList(props) {
   };
 
   return (
-    <div className='grid'>
-      {randomCard.map(card => <Card key={card.imgName} image={card.imgName} onCardClick={setNewArray}/>)}
+    <div className='flex-wrap'>
+      {randomCard.map(card => <Card key={card.imgName} image={card.imgName} onCardClick={setNewArray} placeName={card.placeName}/>)}
     </div>
   )
 }
