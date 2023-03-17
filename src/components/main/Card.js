@@ -1,10 +1,12 @@
 import React from 'react'
 
-export default function Card() {
-  const random = Math.floor(Math.random() * 20) + 1
+export default function Card(props) {
+
+  const {image, onCardClick} = props
+
   return (
     <div className='card'>
-        <img src={`/img/cards/${random}.jpg`} alt="" />
+        <img onClick={onCardClick} src={`/img/cards/${image}.jpg`} alt="" />
     </div>
   )
 }
