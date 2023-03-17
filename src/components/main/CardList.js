@@ -4,7 +4,21 @@ import Card from './Card'
 
 export default function CardList() {
   return (
-    <div>
+    <div className='grid'>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         <Card />
         <Card />
         <Card />

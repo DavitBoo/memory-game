@@ -68,12 +68,15 @@ img{
     border-bottom-right-radius: 2rem;
     border: 3px solid #00A896;
     outline: 3px solid #02C39A;
+    max-width: 100px;
+
 }
 
 
 img:hover{
     filter: grayscale(0);
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 /* *** flexbox *** */
@@ -85,6 +88,14 @@ img:hover{
 .flex-col{
     display: flex;
     flex-direction: column;
+}
+
+/* *** grid *** */
+.grid{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    gap: min(3rem, 5vh);
 }
 
 
@@ -109,6 +120,8 @@ img:hover{
 
 .main{
     align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 
