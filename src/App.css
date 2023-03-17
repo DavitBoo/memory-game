@@ -68,7 +68,8 @@ img{
     border-bottom-right-radius: 2rem;
     border: 3px solid #00A896;
     outline: 3px solid #02C39A;
-    max-width: 100px;
+    outline-offset: -6px;
+    max-width: 110px;
 
 }
 

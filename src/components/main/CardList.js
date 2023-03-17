@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
 
-export default function CardList() {
+export default function CardList(props) {
+
+  const {updateCurrentScore} = props
 
   const [randomCard, setRandomCard] = useState([
     {imgName:1, touched: false},
@@ -47,8 +49,19 @@ export default function CardList() {
     });
   }, [randomCard]);
 
-  const setNewArray = () => {
-    setRandomCard((stateArr) => [...stateArr]); // Hace una copia del estado actual para que React detecte el cambio
+  const setNewArray = (imgName) => {
+    setRandomCard((stateArr) => {
+      return stateArr.map(card => {
+        if (card.imgName === imgName) {
+          if(!card.touched){
+            card.touched = true;
+            updateCurrentScore();
+          }
+          
+        }
+        return card;
+      });
+    });
   };
 
   return (

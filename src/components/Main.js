@@ -3,7 +3,7 @@ import CardList from './main/CardList'
 import GameIntro from './main/GameIntro'
 import GameIsOver from './main/GameIsOver'
 
-export default function Main() {
+export default function Main(props) {
 
     const [gameStarted, setGameStarted] = useState(false)
     const [gameFinished, setGameFinished] = useState(false)
@@ -19,7 +19,7 @@ export default function Main() {
                 !gameStarted ?
                     <GameIntro startGame={startGame}/> :
                         (gameFinished ? <GameIsOver /> :
-                            <CardList />            
+                            <CardList updateCurrentScore={props.updateCurrentScore} />            
                         )
             }    
                 
